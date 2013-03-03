@@ -1,0 +1,109 @@
+<body class="home">
+<div class="wrapper">
+<div class="header">
+<!--Languages selection-->
+<?php echo $this->language(); ?>
+<!--Google +1 button-->
+<div style="float: right; clear: right; margin-top: 70px; margin-right:10px;">
+<g:plusone expr:href="http://www.manorhouseporto.com/" size="medium" count="false"></g:plusone>
+</div>
+<!--Facebook Share button-->
+<a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fwww.manorhouseporto.com" title="Facebook" target="_blank"><img src="/img/facebook_button.jpg" style="float: right; margin-top: 70px; margin-right:10px;"></a>
+<!--End of social networks links-->
+<a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index')); ?>"><div class="home_link"></div></a>
+</div>
+<div class="main_banner"><?php echo $this->mainSlideshow(); ?></div>
+<div class="content">
+<a href="<?php echo $this->url(array('controller'=>'appt', 'action'=>'index', 'appt'=>'1')); ?>"><div class="appt">
+<div class="photo_appt"><img src="/img/appt1.jpg" width="200" height="150" alt="appt1" /></div>
+<div class="desc_appt">
+<h2><?php echo $this->txt['apartment']; ?> #1</h2><br>
+<p><?php echo $this->txt['second_floor']; ?></p>
+<h3><?php echo $this->txt['bedrooms']; ?></h3><p>2</p>
+<h3><?php echo $this->txt['sleeps']; ?></h3><p>5</p>
+<h3><?php echo $this->txt['bathroom']; ?></h3><p>1</p>
+<h3><?php echo $this->txt['rates']; ?> (Euros)</h3>
+<p><?php echo $this->txt['per_night']; ?>: €<?php echo $this->appt1MinNightRate; ?> - €<?php echo $this->appt1MaxNightRate; ?></p>
+<p><?php echo $this->txt['per_week']; ?>: €<?php echo $this->appt1MinWeekRate; ?> - €<?php echo $this->appt1MaxWeekRate; ?></p>
+<p><?php echo $this->txt['minimum_stay']; ?>: 3</p></div></div></a>
+<a href="<?php echo $this->url(array('controller'=>'appt', 'action'=>'index', 'appt'=>'2')); ?>"><div class="appt"><div class="photo_appt"><img src="/img/appt2.jpg" width="200" height="150" alt="appt1" /></div>
+<div class="desc_appt">
+<h2><?php echo $this->txt['apartment']; ?> #2</h2><br>
+<p><?php echo $this->txt['first_floor']; ?></p>
+<h3><?php echo $this->txt['bedrooms']; ?></h3><p>2</p>
+<h3><?php echo $this->txt['sleeps']; ?></h3><p>4</p>
+<h3><?php echo $this->txt['bathroom']; ?></h3><p>1</p>
+<h3><?php echo $this->txt['rates']; ?> (Euros)</h3>
+<p><?php echo $this->txt['per_night']; ?>: €<?php echo $this->appt2MinNightRate; ?> - €<?php echo $this->appt2MaxNightRate; ?></p>
+<p><?php echo $this->txt['per_week']; ?>: €<?php echo $this->appt2MinWeekRate; ?> - €<?php echo $this->appt2MaxWeekRate; ?></p>
+<p><?php echo $this->txt['minimum_stay']; ?>: 3</p></div></div></a>
+<a href="<?php echo $this->url(array('controller'=>'appt', 'action'=>'index', 'appt'=>'3')); ?>"><div class="appt"><div class="photo_appt"><img src="/img/appt3.jpg" width="200" height="150" alt="appt1" /></div>
+<div class="desc_appt">
+<h2><?php echo $this->txt['apartment']; ?> #3</h2><br>
+<p><?php echo $this->txt['ground_floor']; ?></p>
+<p><?php echo $this->txt['terrace']; ?></p>
+<h3><?php echo $this->txt['bedrooms']; ?></h3><p>3</p>
+<h3><?php echo $this->txt['sleeps']; ?></h3><p>7</p>
+<h3><?php echo $this->txt['bathroom']; ?></h3><p>1</p>
+<h3><?php echo $this->txt['rates']; ?> (Euros)</h3>
+<p><?php echo $this->txt['per_night']; ?>: €<?php echo $this->appt3MinNightRate; ?> - €<?php echo $this->appt3MaxNightRate; ?></p>
+<p><?php echo $this->txt['per_week']; ?>: €<?php echo $this->appt3MinWeekRate; ?> - €<?php echo $this->appt3MaxWeekRate; ?></p>
+<p><?php echo $this->txt['minimum_stay']; ?>: 3</p>
+</div></div></a>
+<a href="<?php echo $this->url(array('controller'=>'appt', 'action'=>'index', 'appt'=>'4')); ?>"><div class="appt"><div class="photo_appt"><img src="/img/appt4.jpg" width="200" height="150" alt="appt1" /></div>
+<div class="desc_appt">
+<h2><?php echo $this->txt['apartment']; ?> #4</h2><br>
+<p><?php echo $this->txt['basement']; ?></p>
+<p><?php echo $this->txt['garden']; ?></p>
+<h3><?php echo $this->txt['bedrooms']; ?></h3><p>--</p>
+<h3><?php echo $this->txt['sleeps']; ?></h3><p>--</p>
+<h3><?php echo $this->txt['bathroom']; ?></h3><p>--</p>
+<h3><?php echo $this->txt['rates']; ?> (Euros)</h3>
+<p><?php echo $this->txt['per_night']; ?>: --</p>
+<p><?php echo $this->txt['per_week']; ?>: --</p>
+<p><?php echo $this->txt['minimum_stay']; ?>: --</p>
+</div></div></a>
+</div>
+<div class="breaker"></div>
+<div class="footer">
+
+<div class="footer_title"><?php echo $this->txt['footer_title']; ?></div>
+<div class="footer_text">"<?php echo $this->txt['footer_text']; ?>"</div>
+
+<div class="sharing">
+	<div id="fb-root"></div><fb:like href="http://www.manorhouseporto.com" send="true" width="450" show_faces="true" font=""></fb:like>
+</div>
+
+<div class="contact">
+<div class="contact_title"><?php echo $this->txt['contact_title']; ?></div>
+<div class="contact_text">
+<p>Alexandre Melo</p>
+<p>+351 96 3514401</p>
+<p><?php echo $this->txt['speaks']; ?></p></div>
+</div>
+
+</div>
+</div>
+
+<!--SCRIPTS-->
+<script src="http://connect.facebook.net/en_US/all.js#appId=248563561846506&amp;xfbml=1"></script>
+<script type="text/javascript">
+	$('.ppt_main li:gt(0)').hide();
+	$('.ppt_main li:last').addClass('last');
+	var cur = $('.ppt_main li:first');
+	
+	function animate() {
+		cur.fadeOut( 2000 );
+		if ( cur.attr('class') == 'last' )
+			cur = $('.ppt_main li:first');
+		else
+			cur = cur.next();
+		cur.fadeIn( 2000 );
+	}
+	
+	$(function() {
+		setInterval( "animate()", 5000 );
+	} );
+</script>
+
+</body>

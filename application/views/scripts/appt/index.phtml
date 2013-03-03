@@ -1,0 +1,127 @@
+<body class="home" onLoad="initialize()">
+<div class="wrapper">
+<div class="header">
+<!--Languages selection-->
+<?php echo $this->language(); ?>
+<!--Google +1 button-->
+<div style="float: right; clear: right; margin-top: 70px; margin-right:10px;">
+<g:plusone expr:href="http://www.manorhouseporto.com/" size="medium" count="false"></g:plusone>
+</div>
+<!--Facebook Share button-->
+<a href="http://www.facebook.com/share.php?u=http%3A%2F%2Fwww.manorhouseporto.com" title="Facebook" target="_blank"><img src="/img/facebook_button.jpg" style="float: right; margin-top: 70px; margin-right:10px;"></a>
+<!--End of social networks links-->
+<a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'index')); ?>"><div class="home_link"></div></a>
+</div>
+<div class="main_banner_appt1"><?php echo $this->apptSlideshow($this->appt); ?></div>
+<div class="description_appt">
+<div class="feature_bubble">
+    <div id="TabbedPanels1" class="TabbedPanels">
+    <ul class="TabbedPanelsTabGroup">
+      <li class="TabbedPanelsTab" tabindex="0"><?php echo $this->txt['description']; ?></li>
+      <li class="TabbedPanelsTab" tabindex="0"><?php echo $this->txt['rates']; ?>*</li>
+      <li class="TabbedPanelsTab" tabindex="0"><?php echo $this->txt['accomodation']; ?></li>
+	</ul>
+    <div class="TabbedPanelsContentGroup">
+      <!--Tab Description-->
+      <div class="TabbedPanelsContent">
+      	<h3><?php echo $this->txt['summary']; ?>:</h3>
+      	<p><?php echo $this->txt['appt_'.$this->appt]; ?></p>
+      	<h3><?php echo $this->txt['surface']; ?>:</h3><p><?php echo $this->txt['surface_appt_'.$this->appt]; ?></p>
+      	<h3><?php echo $this->txt['bedrooms']; ?>:</h3><p><?php echo $this->txt['bedrooms_appt_'.$this->appt]; ?></p>
+      	<h3><?php echo $this->txt['sleeps']; ?>:</h3><p><?php echo $this->txt['sleep_appt_'.$this->appt]; ?></p> 
+      </div>
+      
+      <!--Tab rates-->
+      <div class="TabbedPanelsContent">
+      	<?php echo $this->apptRatesTable($this->appt); ?>	
+      </div>
+      
+      <!--Tab accomodation-->
+      <div class="TabbedPanelsContent">
+      	<h3><?php echo $this->txt['general']; ?>:</h3>
+          <p><?php echo $this->txt['furniture_general_'.$this->appt]; ?></p>
+          <h3><?php echo $this->txt['kitchen']; ?>:</h3>
+        <p><?php echo $this->txt['furniture_kitchen_'.$this->appt]; ?></p>
+        <h3><?php echo $this->txt['bedrooms']; ?>:</h3>
+        <p><?php echo $this->txt['bedrooms_queen_'.$this->appt]; ?></p>
+        <h3><?php echo $this->txt['bathroom']; ?>:</h3>
+        <p><?php echo $this->txt['toilet_bath_'.$this->appt]; ?></p></div>
+</div>
+</div>
+</div>
+  <div id="map_canvas"></div>
+<div class="contact_bubble">
+  <h1 class="contact_owner"><?php echo $this->txt['contact_owner']; ?></h1>
+  <?php echo $this->form; ?>
+</div>
+<div class="breaker"></div>
+<div class="comment_bubble">
+
+<div class="sharing">
+	<div id="fb-root"></div><fb:like href="http://www.manorhouseporto.com" send="true" width="450" show_faces="true" font=""></fb:like>
+</div>
+
+<div class="contact">
+<div class="contact_title"><?php echo $this->txt['contact_title']; ?></div>
+<div class="contact_text">
+<p>Alexandre Melo</p>
+<p>+351 96 3514401</p>
+<p><?php echo $this->txt['speaks']; ?></p></div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="breaker"></div>
+
+<!--SCRIPTS-->
+<script src="http://connect.facebook.net/en_US/all.js#appId=248563561846506&amp;xfbml=1"></script>
+<script type="text/javascript">
+	$('.ppt li:gt(0)').hide();
+	$('.ppt li:last').addClass('last');
+	var cur = $('.ppt li:first');
+	
+	function animate() {
+		cur.fadeOut( 2000 );
+		if ( cur.attr('class') == 'last' )
+			cur = $('.ppt li:first');
+		else
+			cur = cur.next();
+		cur.fadeIn( 2000 );
+	}
+	
+	$(function() {
+		setInterval( "animate()", 5000 );
+	} );
+</script>
+
+<script type="text/javascript">
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+</script>
+
+<script type="text/javascript">
+function initialize() {
+	geocoder = new google.maps.Geocoder();
+	var address = 'Rua de Dom Hugo 41, Porto, Portugal';
+	var myOptions = {
+      zoom: 16,
+	  disableDefaultUI: true,
+	  overviewMapControl: true,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    };
+	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+		var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+</script>
+
+</body>

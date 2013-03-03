@@ -1,0 +1,45 @@
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Manor House Porto</title>
+<?php $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8'); ?>
+<?php $this->headMeta()->appendHttpEquiv('expires', 'never'); ?>
+<?php $this->headMeta()->appendName('description', $this->txt['site_description']); ?>
+<?php $this->headMeta()->appendName('keywords', $this->txt['site_keywords']); ?>
+<?php $this->headMeta()->appendName('URL', 'http://www.manorhouseporto.com/'); ?>
+<?php $session = Zend_Registry::get('session'); $this->headMeta()->appendName('language', $session->language); ?>
+<?php $this->headMeta()->appendName('author', 'http://www.manorhouseporto.com/'); ?>
+<?php $this->headMeta()->appendName('copyright', 'Manor House Porto'); ?>
+<?php $this->headMeta()->appendName('robots', 'index, follow'); ?>
+<?php $this->headMeta()->appendName('revisit-after', '7 days'); ?>
+<?php $this->headMeta()->appendName('distribution', 'global'); ?>
+<?php echo $this->headMeta(); ?>
+
+<?php $this->headScript()->appendFile($this->baseUrl('scripts/SpryTabbedPanels.js'), 'text/javascript'); ?>
+<?php $this->headScript()->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js','text/javascript'); ?>
+<?php $this->headScript()->appendFile('http://maps.googleapis.com/maps/api/js?sensor=false', 'text/javascript'); ?>
+<?php $this->headScript()->appendFile('https://apis.google.com/js/plusone.js', 'text/javascript'); ?>
+<?php echo $this->headScript(); ?>
+
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/reset.css')); ?>
+<?php $this->headLink()->appendStylesheet($this->baseUrl('css/main.css')); ?>
+<?php echo $this->headLink(); ?>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25567003-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<?php echo $this->layout()->content ?>
+</html>
